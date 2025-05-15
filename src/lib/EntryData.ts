@@ -4,8 +4,9 @@ export enum ETag{
     MachineLearning = "ML",
     DirectX = "DirectX",
     RayTracing = "RayTracing",
-    GasuianSplatting = "GausianSplatting"    
+    GasuianSplatting = "Gausian"    
 }
+
 
 export interface ISlangProject{
     name: string,
