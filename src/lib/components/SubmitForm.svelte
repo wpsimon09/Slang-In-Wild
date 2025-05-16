@@ -16,9 +16,8 @@
 
 </script>
 
-<div transition:fly="{{ y: -100, duration: 300 }}" class="w-screen font-chivo h-screen  bg-slate-100 backdrop-blur-2xl  flex items-center justify-center ">
+<div transition:fly="{{ y: 200,delay: 0, duration: 500 }}" class="w-screen font-chivo h-screen z-50 bg-slate-100 backdrop-blur-2xl  flex items-center justify-center ">
     <form class="bg-white rounded-xl shadow-lg p-8 flex flex-col gap-4 w-full max-w-md" onsubmit={handleSubmit}>
-        <button onclick={onCloseSubmitButton} type="button" class="justify-self-end bg-red-200"> Close</button>
         <h1 class="text-2xl font-chivo font-semibold">Submit your project </h1>
         <p class="opacity-70 font-chivo font-light">Your project will be reviewed, so this might take a couple of days</p>
 

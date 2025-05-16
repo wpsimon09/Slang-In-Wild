@@ -17,13 +17,14 @@
 
 </script>
 
-<div class="flex flex-row overflow-auto w-[90%] lg:grid  lg:grid-cols-4 gap-2">
+<div class="flex flex-row overflow-auto w-full lg:grid lg:grid-cols-4 gap-2">
             {#each tagValues as tag}
                 {#if isSelectable}    
                     <button
                         type="button"
                         onclick={() => toggleTag(tag)}
-                        class=" px-10 lg:px-3  text-xs font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
+                        
+                        class=" px-10 lg:px-3 text-xs lg:text-md font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800 ' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>
