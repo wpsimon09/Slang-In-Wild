@@ -1,10 +1,10 @@
 <script lang="ts">
     import { ETag } from "$lib/EntryData";
 
-    const {SlangProject, isSelectable} = $props();
+    const {SlangProject, isSelectable, tagValues} = $props();
 
 
-    let tagValues = $state(Object.values(ETag));
+    //let tagValues = $state(Object.values(ETag));
     
     function toggleTag(tag: ETag) {
         if (SlangProject.tags.includes(tag)) {
@@ -17,20 +17,20 @@
 
 </script>
 
-<div class="grid grid-cols-4 gap-2">
+<div class="flex flex-row overflow-auto w-[90%] lg:grid  lg:grid-cols-4 gap-2">
             {#each tagValues as tag}
                 {#if isSelectable}    
                     <button
                         type="button"
                         onclick={() => toggleTag(tag)}
-                        class="   text-xs font-bold border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
+                        class=" px-10 lg:px-3  text-xs font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>
                     {:else}
                       <button
                         type="button"
-                        class="text-xs font-bold border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
+                        class="text-xs px-10 lg:px-3 font-bold w-40 border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>

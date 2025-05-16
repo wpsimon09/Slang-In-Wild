@@ -3,7 +3,8 @@
     import Header from "$lib/components/Header.svelte";
     import Entry from "$lib/components/Entry.svelte";
     import SubmitForm from "$lib/components/SubmitForm.svelte";
-    import { ETag, type ISlangProject } from "$lib/EntryData";
+    import { createEmptySlangProject, ETag, type ISlangProject } from "$lib/EntryData";
+    import TagView from "$lib/components/TagView.svelte";
 
     let submitFormOpened = $state(false);
 
@@ -23,6 +24,11 @@
         console.log(newProject);
     }
 
+    const SlangProjectFilter = $state(createEmptySlangProject());
+
+
+    
+
 </script>
 
 <section class="f-full bg-zinc-100 font-chivo dark:bg-zinc-800 h-screen flex flex-col items-center">
@@ -30,10 +36,11 @@
         <SubmitForm onCloseSubmitButton = {closeForm} onSubmit= {submitForm}/>
     {/if}
 
+    {#if !submitFormOpened}
+
     <Header/>
 
-    <div class=" md:w-[70%] lg:w-[60%] flex-1 flex flex-col items-center w-full mt-4 overflow-auto">
-
+    <div class=" md:w-[70%] lg:w-[60%] flex-1 flex flex-col items-center w-full mt-4 overflow-hidden">
         <div class="w-full justify-between flex lg:flex-row items-center">
             <div class="w-1/3 lg:w-full flex gap-3 items-center justify-start px-4 mt-4">
                 <input class="rounded-xl h-10" type="text" placeholder="Search">
@@ -47,14 +54,20 @@
             </div>
         </div>
 
+        <label class="w-full text-left ml-10">Filter by tags:</label>
+        <div class="w-[90%]">
+            <TagView isSelectable = {true} SlangProject={SlangProjectFilter} tagValues={Object.values(ETag)} />
+        </div>  
+
      
 
-        <div class="mt-2  grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 md:gap-2 lg:gap-4 items-center h-full overflow-auto w-full p-2">
+        <div class="mt-2  grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-1 md:gap-2 lg:gap-4 items-center h-full overflow-auto w-full p-2">
             {#each {length: 50} as _, i}
             <Entry num = {i} />
             {/each}
             
         </div>
     </div>
+    {/if}
     <Footer/>
 </section>

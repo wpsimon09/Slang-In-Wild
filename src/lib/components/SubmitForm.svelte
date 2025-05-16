@@ -16,8 +16,9 @@
 
 </script>
 
-<div transition:fly="{{ y: -100, duration: 300 }}" class="w-screen font-chivo h-screen fixed inset-0 bg-slate-100 backdrop-blur-2xl z-50 flex items-center justify-center">
+<div transition:fly="{{ y: -100, duration: 300 }}" class="w-screen font-chivo h-screen  bg-slate-100 backdrop-blur-2xl  flex items-center justify-center ">
     <form class="bg-white rounded-xl shadow-lg p-8 flex flex-col gap-4 w-full max-w-md" onsubmit={handleSubmit}>
+        <button onclick={onCloseSubmitButton} type="button" class="justify-self-end bg-red-200"> Close</button>
         <h1 class="text-2xl font-chivo font-semibold">Submit your project </h1>
         <p class="opacity-70 font-chivo font-light">Your project will be reviewed, so this might take a couple of days</p>
 
@@ -42,7 +43,7 @@
         </label>
 
         <span class="mb-1 font-semibold">Choose your tags:</span>
-        <TagView SlangProject={NewSlangProject} isSelectable = {true}/>
+        <TagView SlangProject={NewSlangProject} isSelectable = {true} tagValues={Object.values(ETag)}/>
 
         <div class="flex items-center w-full gap-2 mt-4">
             <button onclick={onCloseSubmitButton} type="button" class="w-1/2 text-white duration-200 hover:text-zinc-600 hover:cursor-pointer hover:bg-cyan-300 p-2 rounded-lg shadow-xl bg-amber-600">
