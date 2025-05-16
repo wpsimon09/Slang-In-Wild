@@ -6,6 +6,8 @@
 
    const  {num, SlangProject} = $props();
 
+    const tagsArray = SlangProject.tags ? SlangProject.tags.split(',') : [];
+
 </script>
 
 <div class=" flex bg-white p-4 lg:p-2 flex-col   rounded-2xl shadow-xl w-full   lg:mx-0 ">
@@ -31,7 +33,7 @@
     <p class=" ml-2 font-bold">Tags:</p>
 
     <div class = "w-full  gap-3 grid grid-cols-3  overflow-auto grid-rows-3">
-            {#each SlangProject.tags as tag, i }
+            {#each tagsArray as tag, i }
                 <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white" : "bg-cyan-400 text-zinc-800"  } p-1 shadow-2xl rounded-2xl h-8" >{tag}</button>
             {/each}
     </div>
