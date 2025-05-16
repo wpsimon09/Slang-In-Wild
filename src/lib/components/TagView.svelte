@@ -1,7 +1,7 @@
 <script lang="ts">
     import { ETag } from "$lib/EntryData";
 
-    const {SlangProject, isSelectable, tagValues} = $props();
+    const {SlangProject, onFrontPage, tagValues} = $props();
 
 
     //let tagValues = $state(Object.values(ETag));
@@ -17,21 +17,23 @@
 
 </script>
 
-<div class="flex flex-row overflow-auto w-full lg:grid lg:grid-cols-4 gap-2">
+<div class="flex flex-row overflow-auto w-full lg:grid lg:grid-cols-4 gap-3">
             {#each tagValues as tag}
-                {#if isSelectable}    
+                {#if onFrontPage}    
                     <button
                         type="button"
                         onclick={() => toggleTag(tag)}
                         
-                        class=" px-10 lg:px-3 text-xs lg:text-md font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800 ' : 'bg-transparent text-zinc-800'}"
+                        class=" text-sm px-5 lg:px-10  lg:text-md font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800 ' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>
                     {:else}
                       <button
                         type="button"
-                        class="text-xs px-10 lg:px-3 font-bold w-40 border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
+                        onclick={() => toggleTag(tag)}
+
+                        class=" text-xs font-bold px-2 w-20 lg:px-0 border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>

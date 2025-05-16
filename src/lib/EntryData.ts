@@ -3,7 +3,7 @@ export enum ETag{
     OpenGL = "OpenGL",
     MachineLearning = "ML",
     DirectX = "DirectX",
-    RTX = "RayTracing",
+    RTX = "RTX",
     GasuianSplatting = "Gausian"    
 }
 

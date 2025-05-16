@@ -12,8 +12,10 @@
     <div class="px-2 w-full flex flex-row items-center justify-between">
         <h1 class="font-chivo text-2xl font-semibold mb-2">Project name</h1>
     
-        <div class="flex flex-row  items-center justify-end m-2">
-            <img alt="github" class="h-7 w-7 lg:h-8 lg:w-8" src="svg/github-cyan.svg">
+        <div class=" h-7 w-7 lg:h-8 lg:w-8 justify-end m-2">
+            <a target="_blank" rel="noopener noreferrer" class="h-full w-full " href={SlangProject.ghLink}>
+                <img alt="github"  class="h-full w-full" src="svg/github-cyan.svg">
+            </a>
         </div>
 
     </div>
@@ -28,9 +30,9 @@
 
     <p class=" ml-2 font-bold">Tags:</p>
 
-    <div class = "w-full gap-3 overflow-auto grid grid-cols-3 grid-rows-3">
+    <div class = "w-full  gap-3 grid grid-cols-3  overflow-auto grid-rows-3">
             {#each SlangProject.tags as tag, i }
-                <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white" : "bg-cyan-400 text-zinc-800"  } p-1 shadow-2xl rounded-2xl" >{tag}</button>
+                <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white" : "bg-cyan-400 text-zinc-800"  } p-1 shadow-2xl rounded-2xl h-8" >{tag}</button>
             {/each}
     </div>
 

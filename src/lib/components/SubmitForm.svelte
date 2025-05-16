@@ -11,6 +11,7 @@
     function handleSubmit(event: Event){
         event.preventDefault();
         onSubmit(NewSlangProject);
+        onCloseSubmitButton();
     }
 
 
@@ -42,7 +43,7 @@
         </label>
 
         <span class="mb-1 font-semibold">Choose your tags:</span>
-        <TagView SlangProject={NewSlangProject} isSelectable = {true} tagValues={Object.values(ETag)}/>
+        <TagView SlangProject={NewSlangProject} onFrontPage = {false} tagValues={Object.values(ETag)}/>
 
         <div class="flex items-center w-full gap-2 mt-4">
             <button onclick={onCloseSubmitButton} type="button" class="w-1/2 text-white duration-200 hover:text-zinc-600 hover:cursor-pointer hover:bg-cyan-300 p-2 rounded-lg shadow-xl bg-amber-600">
