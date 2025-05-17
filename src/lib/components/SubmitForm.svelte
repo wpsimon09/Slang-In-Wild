@@ -8,10 +8,18 @@
 
     const NewSlangProject = $state(createEmptySlangProject());
 
-    function handleSubmit(event: Event){
+    async function handleSubmit(event: Event){
         event.preventDefault();
         onSubmit(NewSlangProject);
         onCloseSubmitButton();
+
+         const response = await fetch('/api', {
+			method: 'POST',
+			body: JSON.stringify({ NewSlangProject }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
     }
 
 

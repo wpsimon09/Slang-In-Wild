@@ -12,3 +12,4 @@ export const pool = mysql.createPool({
 })
 
 export const connectionToDB = async() => pool.getConnection();
+

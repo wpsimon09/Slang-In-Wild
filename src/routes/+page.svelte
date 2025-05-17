@@ -29,17 +29,11 @@
 
     function submitForm(newProject:ISlangProject):void{
         console.log(newProject);
+
+           
     }
 
     const SlangProjectFilter = $state(createEmptySlangProject());
-
-
-    const TestSlangProject = createEmptySlangProject();
-    TestSlangProject.name = "Vulkan-RTX";
-    TestSlangProject.description = "This is going to be a demonstration project entry for testing purposes. You can use this description to see how entries are rendered and displayed in the project grid.This is going to be a demonstration project entry for testing purposes. You can use this description to see how entries are rendered and displayed in the project grid.";
-    TestSlangProject.tags = [ETag.RTX,ETag.RTX,ETag.RTX,ETag.RTX,ETag.RTX,ETag.RTX, ETag.Vulkan, ETag.DirectX, ETag.OpenGL, ETag.MachineLearning]
-    TestSlangProject.ghLink = "https://github.com/"
-
 
 </script>
 
