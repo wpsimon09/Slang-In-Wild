@@ -27,12 +27,6 @@
         submitFormOpened = false;
     }
 
-    function submitForm(newProject:ISlangProject):void{
-        console.log(newProject);
-
-           
-    }
-
     const SlangProjectFilter = $state(createEmptySlangProject());
 
 </script>
@@ -43,7 +37,7 @@
     <Header/>
 
     {#if submitFormOpened}
-        <SubmitForm onCloseSubmitButton = {closeForm} onSubmit= {submitForm}/>
+        <SubmitForm onCloseSubmitButton = {closeForm}/>
     {/if}
     {#if !submitFormOpened}
         

@@ -12,7 +12,7 @@ export interface ISlangProject{
     name: string,
     description: string,
     ghLink: string, 
-    contactEmai: string,
+    contactEmail: string,
     tags: ETag[]
 
 }
@@ -22,7 +22,7 @@ export function createEmptySlangProject(): ISlangProject {
         name: "",
         description: "",
         ghLink: "",
-        contactEmai: "",
+        contactEmail: "",
         tags: []
     };
 }

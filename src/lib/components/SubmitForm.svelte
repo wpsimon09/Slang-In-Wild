@@ -4,13 +4,12 @@
     import {fly, scale} from 'svelte/transition';
     import TagView from './TagView.svelte';
 
-    const {  onCloseSubmitButton, onSubmit } = $props();
+    const {  onCloseSubmitButton } = $props();
 
     const NewSlangProject = $state(createEmptySlangProject());
 
     async function handleSubmit(event: Event){
         event.preventDefault();
-        onSubmit(NewSlangProject);
         onCloseSubmitButton();
 
          const response = await fetch('/api', {
@@ -32,12 +31,12 @@
 
         <label class="flex flex-col">
             <span class="mb-1 font-semibold">Contact email</span>
-            <input class="border rounded p-2" type="email" bind:value={NewSlangProject.contactEmai} required />
+            <input autocomplete="email" class="border rounded p-2" type="email" bind:value={NewSlangProject.contactEmail} required />
         </label>
 
         <label class="flex flex-col">
             <span class="mb-1 font-semibold">Project Name</span>
-            <input class="border rounded p-2" type="text" bind:value={NewSlangProject.name} required />
+            <input autocomplete="on" class="border rounded p-2" type="text" bind:value={NewSlangProject.name} required />
         </label>
 
         <label class="flex flex-col">
@@ -47,7 +46,7 @@
 
         <label class="flex flex-col">
             <span class="mb-1 font-semibold">GitHub Link</span>
-            <input class="border rounded p-2" type="url" bind:value={NewSlangProject.ghLink} required />
+            <input class="border rounded p-2 " autocomplete="on" type="url" bind:value={NewSlangProject.ghLink} required />
         </label>
 
         <span class="mb-1 font-semibold">Choose your tags:</span>
