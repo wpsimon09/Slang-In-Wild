@@ -21,7 +21,7 @@
     <div class="w-1/3 ml-2  h-1  {num %2 == 0 ? " bg-amber-500" : "bg-teal-700" } "></div>
     <div class ="mx-2 mt-4 overflow-hidden overflow-y-scroll m-2 font-chivo font-light lg:h-80 h-80  text-sm lg:text-lg">
         <p class=" font-bold">Description:</p>
-        <div class="text-md lg:text-lg ">   
+        <div class="text-lg ">   
             {SlangProject.description}
         </div>
     </div>

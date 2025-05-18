@@ -23,8 +23,12 @@
     }
 
     function closeForm():void{
-        console.log("closing submit")
         submitFormOpened = false;
+    }
+
+    function clearTags():void{
+        console.log("clearing tags ")
+        SlangProjectFilter.tags = SlangProjectFilter.tags.filter(tag => false);
     }
 
     // filtering by text and tags 
@@ -35,7 +39,7 @@
     ));  
 </script>
 
-<section class="f-full bg-zinc-100 font-chivo flex flex-col items-center">
+<section class="f-full bg-zinc-100 font-chivo  flex flex-col items-center">
     
     
     <Header/>
@@ -46,6 +50,7 @@
     {#if !submitFormOpened}
         
     
+
     <div class="w-full bg-zinc-100/90  backdrop-blur-xl py-4 sticky top-0 z-40 md:w-[70%] lg:w-[60%] flex flex-col items-center mt-4 overflow-hidden">
         <div class="w-full ">
                 <div class="w-full flex flex-row items-center lg:justify-between">
@@ -59,13 +64,16 @@
                 </div>
                 
                 
-                <h2 class="w-full text-left ml-4 lg:ml-10 lg:mt- mt-2">Filter by tags:</h2>
-                <div class="w-[90%] lg:w-full pl-4 lg:px-4 lg:mt-2">
+                <div class="w-full justify-between flex flex-row">
+                    <h2 class="w-full text-left ml-4 lg:ml-10 lg:mt- mt-2">Filter by tags:</h2>
+                    <button onclick={clearTags}>Clear</button>
+                </div>
+                <div class="w-[90%] lg:w-full pl-4 mt-3 lg:px-4 lg:mt-2">
                     <TagView onFrontPage = {true} SlangProject={SlangProjectFilter} tagValues={Object.values(ETag)} />
                 </div>  
         </div>
     </div>
-    <div class="  md:w-[70%] lg:w-[60%] flex flex-col items-center w-full mt-4 overflow-hidden">
+    <div class=" {FilteredProjects.length === 0 ? "flex-1" : ""} md:w-[70%] lg:w-[60%] flex flex-col items-center w-full mt-4 overflow-hidden">
         
         
         <div class="mt-2 py-5  grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-3 md:gap-2 lg:gap-4 items-center h-full w-full p-2">
