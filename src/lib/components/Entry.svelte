@@ -9,16 +9,18 @@
 
 <div transition:scale={{duration: 220, delay:20, easing: expoInOut}}  class=" flex bg-white p-4 lg:p-2 flex-col  duration-120  rounded-2xl shadow-xl w-full   lg:mx-0 ">
     <div class="px-2 w-full flex flex-row items-center justify-between">
-        <h1 class="font-chivo text-2xl font-semibold mb-2">{SlangProject.name}</h1>
-    
+        <div class="flex flex-col w-full ">
+            <h1 class="font-chivo text-2xl font-semibold ">{SlangProject.name}</h1>
+            <p class="text-s text-zinc-400">by: {SlangProject.authorName}</p>
+        </div>
         <div class=" h-7 w-7 lg:h-8 lg:w-8 justify-end m-2">
             <a target="_blank" rel="noopener noreferrer" class="h-full w-full " href={SlangProject.ghLink}>
                 <img alt="github"  class="hover:scale-110 duration-100  h-full w-full" src="svg/github-cyan.svg">
             </a>
         </div>
-
+        
     </div>
-    <div class="w-1/3 ml-2  h-1  {num %2 == 0 ? " bg-amber-500" : "bg-teal-700" } "></div>
+    <div class="w-1/3 ml-2 mt-2  h-1  {num %2 == 0 ? " bg-amber-500" : "bg-teal-700" } "></div>
     <div class ="mx-2 mt-4 overflow-hidden overflow-y-scroll m-2 font-chivo font-light lg:h-80 h-80  text-sm lg:text-lg">
         <p class=" font-bold">Description:</p>
         <div class="text-lg ">   

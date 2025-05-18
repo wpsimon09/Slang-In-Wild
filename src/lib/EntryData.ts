@@ -4,7 +4,10 @@ export enum ETag{
     MachineLearning = "ML",
     DirectX = "DirectX",
     RTX = "RTX",
-    GasuianSplatting = "Gausian"    
+    GasuianSplatting = "Splatting",
+    Scientific = "Scientific",
+    Games = "Games",
+    GameEngine = "Game Engine"    
 }
 
 
@@ -13,6 +16,7 @@ export interface ISlangProject{
     description: string,
     ghLink: string, 
     contactEmail: string,
+    authorName: string,
     tags: ETag[]
 
 }
@@ -23,6 +27,7 @@ export function createEmptySlangProject(): ISlangProject {
         description: "",
         ghLink: "",
         contactEmail: "",
+        authorName : "",
         tags: []
     };
 }
