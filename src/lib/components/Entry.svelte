@@ -1,12 +1,13 @@
 <script lang="ts">
     import type { createEmptySlangProject, ISlangProject } from "$lib/EntryData";
-
+	import { scale } from 'svelte/transition';
+	import { expoInOut } from 'svelte/easing';
     const  {num, SlangProject} = $props();
 
 
 </script>
 
-<div class=" flex bg-white p-4 lg:p-2 flex-col hover:{num %2 == 0 ? "shadow-amber-500" : "shadow-cyan-300"} duration-120  rounded-2xl shadow-xl w-full   lg:mx-0 ">
+<div transition:scale={{duration: 220, easing: expoInOut}}  class=" flex bg-white p-4 lg:p-2 flex-col  duration-120  rounded-2xl shadow-xl w-full   lg:mx-0 ">
     <div class="px-2 w-full flex flex-row items-center justify-between">
         <h1 class="font-chivo text-2xl font-semibold mb-2">{SlangProject.name}</h1>
     
@@ -30,7 +31,7 @@
 
     <div class = "w-full  h-30 gap-3 grid grid-cols-3  overflow-auto grid-rows-3">
             {#each SlangProject.tags as tag, i }
-                <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white" : "bg-cyan-400 text-zinc-800"  } p-1 shadow-2xl rounded-2xl h-8" >{tag}</button>
+                <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white shadow-amber-500" : "shadow-cyan-400 bg-cyan-400 text-zinc-800"  } p-1 shadow-md rounded-2xl h-8" >{tag}</button>
             {/each}
     </div>
 

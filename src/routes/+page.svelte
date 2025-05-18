@@ -25,15 +25,17 @@
         submitFormOpened = false;
     }
 
+    function onSearchChange(): void {
+        FilteredProjects.filter(project => project.name.includes(searchText))
+    }
+
     const SlangProjectFilter = $state(createEmptySlangProject());
 
-let FilteredProjects = $derived(
-  SlangProjectFilter.tags.length === 0 
-    ? data.projects 
-    : data.projects.filter(project => 
-        SlangProjectFilter.tags.every(tag => project.tags.includes(tag))
-      )
-);  
+    let FilteredProjects = $derived(data.projects.filter(project =>
+        (SlangProjectFilter.tags.length === 0 ||
+            SlangProjectFilter.tags.every(tag => project.tags.includes(tag))) &&
+        (!searchText || project.name.toLowerCase().includes(searchText.toLowerCase()))
+    ));  
 </script>
 
 <section class="f-full bg-zinc-100 font-chivo flex flex-col items-center">
@@ -51,7 +53,7 @@ let FilteredProjects = $derived(
         <div class="w-full ">
                 <div class="w-full flex flex-row items-center justify-between">
                     <div class="lg:w-full flex gap-3 items-center justify-start px-4 mt-4">
-                        <input bind:value={searchText} class="rounded-xl w-40 lg:w-1/3 lg:h-10" type="text" placeholder="Search">
+                        <input oninput={onSearchChange} bind:value={searchText} class="rounded-xl w-40 lg:w-1/3 lg:h-10" type="text" placeholder="Search">
                         <button  class="h-7 w-7 hover:h-8 hover:w-8 duration-200 hover:cursor-pointer ">
                             <img alt="search" src="/svg/search.svg" class="h-full w-full"  />
                         </button>
