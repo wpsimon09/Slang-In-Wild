@@ -53,10 +53,10 @@
         <TagView SlangProject={NewSlangProject} onFrontPage = {false} tagValues={Object.values(ETag)}/>
 
         <div class="flex items-center w-full gap-2 mt-4">
-            <button onclick={onCloseSubmitButton} type="button" class="w-1/2 text-white duration-200 hover:text-zinc-600 hover:cursor-pointer hover:bg-cyan-300 p-2 rounded-lg shadow-xl bg-amber-600">
+            <button onclick={onCloseSubmitButton} type="button" class="w-1/2 text-white duration-200 hover:text-zinc-600 hover:cursor-pointer hover:bg-teal-700 p-2 rounded-lg shadow-xl bg-amber-600">
                 Close
             </button>
-            <button type="submit" class="w-1/2 text-white duration-200 hover:text-zinc-600 hover:cursor-pointer hover:bg-cyan-300 p-2 rounded-lg shadow-xl bg-amber-600">
+            <button type="submit" class="w-1/2 text-white duration-200 hover:text-zinc-600 hover:cursor-pointer hover:bg-teal-700 p-2 rounded-lg shadow-xl bg-amber-600">
                 Submit
             </button>
         </div>

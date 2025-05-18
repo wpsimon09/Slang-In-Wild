@@ -23,7 +23,7 @@
                         type="button"
                         onclick={() => toggleTag(tag)}
                         
-                        class=" text-sm px-5 lg:px-10  lg:text-md font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800 ' : 'bg-transparent text-zinc-800'}"
+                        class=" text-sm px-5 lg:px-10  lg:text-md font-bold border  border-zinc-400 h-10 rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-teal-700 text-white ' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>
@@ -32,7 +32,7 @@
                         type="button"
                         onclick={() => toggleTag(tag)}
 
-                        class=" text-xs font-bold px-2 w-20 lg:px-0 border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-cyan-300 text-zinc-800' : 'bg-transparent text-zinc-800'}"
+                        class=" text-xs font-bold px-2 w-20 lg:px-0 border border-zinc-400 h-10 rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer  {SlangProject.tags.includes(tag) ? 'bg-teal-700 text-white' : 'bg-transparent text-zinc-800'}"
                     >
                         {tag}
                     </button>

@@ -18,12 +18,11 @@
         </div>
 
     </div>
-    <div class="w-1/3 ml-2  h-1  {num %2 == 0 ? " bg-amber-500" : "bg-cyan-300" } "></div>
+    <div class="w-1/3 ml-2  h-1  {num %2 == 0 ? " bg-amber-500" : "bg-teal-700" } "></div>
     <div class ="mx-2 mt-4 overflow-hidden overflow-y-scroll m-2 font-chivo font-light lg:h-80 h-80  text-sm lg:text-lg">
         <p class=" font-bold">Description:</p>
-        <div class=" text-lg lg:text-lg ">   
+        <div class="text-md lg:text-lg ">   
             {SlangProject.description}
-
         </div>
     </div>
 
@@ -31,7 +30,7 @@
 
     <div class = "w-full  h-30 gap-3 grid grid-cols-3  overflow-auto grid-rows-3">
             {#each SlangProject.tags as tag, i }
-                <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white shadow-amber-500" : "shadow-cyan-400 bg-cyan-400 text-zinc-800"  } p-1 shadow-md rounded-2xl h-8" >{tag}</button>
+                <button  class=" justify-around {num%2 == 0 ? "bg-amber-600 text-white" : " bg-teal-700 text-white"  } p-1 shadow-md rounded-2xl h-8" >{tag}</button>
             {/each}
     </div>
 
