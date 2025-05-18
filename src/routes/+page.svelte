@@ -13,9 +13,7 @@
 
     let { data }: PageProps = $props();
 
-    console.log(data);
-
-    
+    let searchText = $state();
     
     function openSubmitForm():void{
         if(submitFormOpened) submitFormOpened = false;
@@ -29,9 +27,16 @@
 
     const SlangProjectFilter = $state(createEmptySlangProject());
 
+let FilteredProjects = $derived(
+  SlangProjectFilter.tags.length === 0 
+    ? data.projects 
+    : data.projects.filter(project => 
+        SlangProjectFilter.tags.every(tag => project.tags.includes(tag))
+      )
+);  
 </script>
 
-<section class="f-full bg-zinc-100 font-chivo dark:bg-zinc-800 flex flex-col items-center">
+<section class="f-full bg-zinc-100 font-chivo flex flex-col items-center">
     
     
     <Header/>
@@ -46,8 +51,8 @@
         <div class="w-full ">
                 <div class="w-full flex flex-row items-center justify-between">
                     <div class="lg:w-full flex gap-3 items-center justify-start px-4 mt-4">
-                        <input class="rounded-xl w-40 lg:w-1/3 lg:h-10" type="text" placeholder="Search">
-                        <button class="h-7 w-7 hover:h-8 hover:w-8 duration-200 hover:cursor-pointer ">
+                        <input bind:value={searchText} class="rounded-xl w-40 lg:w-1/3 lg:h-10" type="text" placeholder="Search">
+                        <button  class="h-7 w-7 hover:h-8 hover:w-8 duration-200 hover:cursor-pointer ">
                             <img alt="search" src="/svg/search.svg" class="h-full w-full"  />
                         </button>
                     </div>
@@ -68,7 +73,7 @@
         
         
         <div class="mt-2 py-5  grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-3 md:gap-2 lg:gap-4 items-center h-full w-full p-2">
-            {#each data.projects as project, i}
+            {#each FilteredProjects as project, i}
             <Entry num = {i} SlangProject={project} />
             {/each}
             

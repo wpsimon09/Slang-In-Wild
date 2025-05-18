@@ -4,7 +4,6 @@
     const {SlangProject, onFrontPage, tagValues} = $props();
 
 
-    //let tagValues = $state(Object.values(ETag));
     
     function toggleTag(tag: ETag) {
         if (SlangProject.tags.includes(tag)) {
