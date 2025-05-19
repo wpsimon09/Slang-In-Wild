@@ -25,7 +25,7 @@
             event.preventDefault();
             onCloseSubmitButton();
     
-             const response = await fetch('/api', {
+             const response = await fetch('/', {
                 method: 'POST',
                 body: JSON.stringify({ NewSlangProject }),
                 headers: {
