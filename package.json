@@ -33,6 +33,7 @@
 	},
 	"dependencies": {
 		"@supabase/supabase-js": "^2.49.4",
-		"mysql2": "^3.14.1"
+		"mysql2": "^3.14.1",
+		"svelte-adapter-azure-swa": "^0.22.0"
 	}
 }
