@@ -1,80 +1,78 @@
 -- run this script on your local mysql database, dont forget to change env variables
 CREATE DATABASE SlangInWild;
 use SlangInWild;
-
-CREATE TABLE SlangProjects (
-    ProjectID INT PRIMARY KEY,
+CREATE TABLE dbo.PotentialSlagnProjects (
+    ProjectID INT IDENTITY(1,1) PRIMARY KEY,
     ProjectName VARCHAR(255) NOT NULL,
-	Author VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
     Description TEXT NOT NULL,
-    Tags VARCHAR(100) NOT NULL,
-    CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-    VerifiedDate DATETIME NOT NULL
-);
-
-CREATE TABLE PotentialSlagnProjects (
-    ProjectID INT PRIMARY KEY,
-    ProjectName VARCHAR(255) NOT NULL,
-	Author VARCHAR(255) NOT NULL,
-    Description TEXT NOT NULL,
-    Tags VARCHAR(100) NOT NULL,
+    Tags VARCHAR(255) NOT NULL,
     ContactEmail VARCHAR(255) NOT NULL,
-    SubmittedDate DATETIME DEFAULT CURRENT_TIMESTAMP
+    SubmittedDate DATETIME NULL,
+    ghLink VARCHAR(255) NULL
 );
 
--- Entry 1
-INSERT INTO SlangProjects (
-    ProjectID,
+CREATE TABLE dbo.SlangProjects (
+    ProjectID INT IDENTITY(1,1) PRIMARY KEY,
+    ProjectName VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    Tags VARCHAR(255) NOT NULL,
+    CreatedDate DATETIME NULL,
+    VerifiedDate DATETIME NOT NULL,
+    ghLink VARCHAR(255) NULL
+);
+INSERT INTO dbo.SlangProjects (
     ProjectName,
     Author,
     Description,
     Tags,
     CreatedDate,
-    VerifiedDate
-) VALUES (
-    2,
+    VerifiedDate,
+    ghLink
+) VALUES
+(
     'Volumetric Scientific Renderer',
     'Dr. Eliza Tran',
     'A rendering engine for scientific visualizations using Vulkan and volumetric datasets.',
     'Vulkan, Scientific, Game Engine',
     GETDATE(),
-    GETDATE()
-);
-
--- Entry 2
-INSERT INTO SlangProjects (
-    ProjectID,
-    ProjectName,
-    Author,
-    Description,
-    Tags,
-    CreatedDate,
-    VerifiedDate
-) VALUES (
-    3,
+    GETDATE(),
+    'https://github.com/eliza/volumetric-renderer'
+),
+(
     'Neural Path Tracer',
     'Rajeev Patel',
     'Combines ML models with RTX for real-time neural path tracing in complex scenes.',
     'ML, RTX, DirectX, Scientific',
     GETDATE(),
-    GETDATE()
-);
-
--- Entry 3
-INSERT INTO SlangProjects (
-    ProjectID,
-    ProjectName,
-    Author,
-    Description,
-    Tags,
-    CreatedDate,
-    VerifiedDate
-) VALUES (
-    4,
+    GETDATE(),
+    'https://github.com/rajeev/neural-path-tracer'
+),
+(
     'Retro Game Engine',
     'Maria Gonzalez',
     'A lightweight OpenGL-based game engine designed for retro-style 2D/3D games.',
     'OpenGL, Game Engine, Games',
     GETDATE(),
-    GETDATE()
+    GETDATE(),
+    'https://github.com/maria/retro-engine'
+),
+(
+    'Gaussian Splatting Toolkit',
+    'Kenji Nakamura',
+    'A toolkit for generating real-time visuals using Gaussian Splatting with Vulkan.',
+    'Vulkan, Splatting, Games',
+    GETDATE(),
+    GETDATE(),
+    'https://github.com/kenji/splatting-toolkit'
+),
+(
+    'Scientific ML Framework',
+    'Dr. Anika Sharma',
+    'An experimental platform for applying machine learning to scientific simulation data.',
+    'ML, Scientific, RTX',
+    GETDATE(),
+    GETDATE(),
+    'https://github.com/anika/scientific-ml'
 );

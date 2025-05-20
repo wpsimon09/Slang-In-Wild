@@ -70,7 +70,9 @@
     {/if}
 
     {#if submitFormOpened}
+    <div class="flex-1 flex-row flex items-center">
         <SubmitForm onCloseSubmitButton={closeForm} />
+    </div>
     {/if}
     {#if !submitFormOpened}
         <div transition:scale={{ duration: 120, delay: 121, easing: expoInOut }}

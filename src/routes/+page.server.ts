@@ -7,30 +7,59 @@ import type { Actions } from "@sveltejs/kit";
 //=============================
 // load initial data 
 export async function load() {
-    const conn = await poolPromise;
+  const conn = await poolPromise;
 
-    const result = await conn.request().query('SELECT * FROM SlangProjects');
+  const result = await conn.request().query('SELECT * FROM SlangProjects');
 
-    const rows = result.recordset;
+  const rows = result.recordset;
 
-    // parse the result
-    const projects: ISlangProject[] = rows.map(parseProject);
+  // parse the result
+  const projects: ISlangProject[] = rows.map(parseProject);
 
-    console.log(projects)
+  console.log(projects)
 
-    return {
-        projects
-    };
+  return {
+    projects
+  };
 }
 
-//============================================
-// handle submition of the new slang project
 export const actions = {
-    default: async({request})=>{
-        const formData = await request.formData();
-        console.log(formData);
-        
-        const projectName = formData.get()
+  //============================================
+  // handle submition of the new slang project
+  default: async ({ request }) => {
+    const formData = await request.formData();
+    console.log(formData);
+
+    const email = formData.get("email")?.toString() || '';;
+    const projectName = formData.get("project-name")?.toString() || '';
+    const authorName = formData.get("author-name")?.toString() || '';
+    const description = formData.get("description")?.toString() || '';
+    const ghLink = formData.get("gh-link")?.toString() || '';
+    const tags = formData.get("tags")?.toString() || '';
+
+    try {
+      const pool = await poolPromise;
+      await pool.request()
+        .input('ProjectName', projectName)
+        .input('Description', description)
+        .input('Author', authorName)
+        .input('Tags', tags)
+        .input('ContactEmail', email)
+        .input('ghLink', ghLink)
+        .query(`
+			INSERT INTO PotentialSlagnProjects (
+				ProjectName, Description, Author, Tags, ContactEmail, SubmittedDate, ghLink
+			) VALUES (
+				@ProjectName, @Description, @Author, @Tags, @ContactEmail, GETDATE(), @ghLink
+			)
+		`);
+
+      console.log("submitted entry",)
+      return { success: true };
+    } catch (error) {
+      console.error('Insert failed:', error);
+      return { success: false, error: 'Database insert failed' };
     }
+  }
 } satisfies Actions;
 

@@ -21,14 +21,15 @@
 
 </script>
 
-<div transition:fly="{{ y: 200,delay: 50, duration: 210 }}" class="w-screen font-chivo h-screen z-50 bg-slate-100 backdrop-blur-2xl  flex items-center justify-center ">
-    <form method="POST" class="bg-white rounded-xl shadow-lg p-8 flex flex-col gap-4 w-1/3 " >
+<div transition:fly="{{ y: 200,delay: 10, duration: 210 }}" class="w-screen font-chivo h-full  z-50 bg-slate-100 backdrop-blur-2xl  flex items-center justify-center ">
+    <form method="POST" class="bg-white md:w-[90%] rounded-xl shadow-lg  flex flex-col gap-4 w-full p-10 lg:p-8 lg:py-10 lg:w-1/3 " >
         <h1 class="text-2xl font-chivo font-semibold">Submit your project </h1>
         <p class="opacity-70 font-chivo font-light">Your project will be reviewed, so this might take a couple of days</p>
 
         <label class="flex flex-col">
             <span class="mb-1 font-semibold">Contact email <span class="text-red-500">*</span> </span>
             <input name="email" autocomplete="email" class="border rounded p-2" type="email" bind:value={NewSlangProject.contactEmail} required />
+            <p class="opacity-50">your email will be used only for the review process, then it is instanly deleted </p>
         </label>
 
         <label class="flex flex-col">
@@ -52,7 +53,7 @@
             <input name="gh-link" class="border rounded p-2 " autocomplete="on" type="url" bind:value={NewSlangProject.ghLink} required />
         </label>
 
-        <input type="hidden" bind:value={serializedTags}>
+        <input type="hidden" name="tags" bind:value={serializedTags}>
 
         <span class="mb-1 font-semibold">Choose your tags:<span class="text-red-500">*</span></span>
 
@@ -60,7 +61,7 @@
             <p class="text-red-500 ">Select at least one tag, thank you</p>
         {/if}
         {#if showMaxFlags}
-            <p class="text-red-500 ">Max flags is 6</p>
+            <p class="text-red-500 ">Max flag count is 6, sorry</p>
         {/if}
         <div class="w-full overflow-auto">
             <TagView SlangProject={NewSlangProject} onFrontPage = {false} tagValues={Object.values(ETag)}/>
