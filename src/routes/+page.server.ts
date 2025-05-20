@@ -1,23 +1,18 @@
-import{MYSQL_DATABASE} from "$env/static/private"
-
-import { connectionToDB } from "$lib/db"
+import { env } from "$env/dynamic/private";
+import { poolPromise } from "$lib/db"
 import type { ISlangProject } from "$lib/EntryData";
-
+import { parseProject } from "$lib/EntryData";
 
 export async function load() {
-    const conn = await connectionToDB();
-    const [rows] = await conn.query('SELECT * FROM ' + MYSQL_DATABASE);
-    
-    conn.release(); 
+    const conn = await poolPromise;
 
+    const result = await conn.request().query('SELECT * FROM SlangProjects');
 
-    const projects = (rows as ISlangProject[]).map((row: any) => ({
-        ...row,
-        tags: typeof row.tags === 'string'
-            ? row.tags.split(',').map((tag: string) => tag.trim())
-            : []
-    }));
+    const rows = result.recordset;
 
+    const projects: ISlangProject[] = rows.map(parseProject);
+
+    console.log(projects)
 
     return {
         projects

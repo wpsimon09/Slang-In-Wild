@@ -1,0 +1,80 @@
+-- run this script on your local mysql database, dont forget to change env variables
+CREATE DATABASE SlangInWild;
+use SlangInWild;
+
+CREATE TABLE SlangProjects (
+    ProjectID INT PRIMARY KEY,
+    ProjectName VARCHAR(255) NOT NULL,
+	Author VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    Tags VARCHAR(100) NOT NULL,
+    CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    VerifiedDate DATETIME NOT NULL
+);
+
+CREATE TABLE PotentialSlagnProjects (
+    ProjectID INT PRIMARY KEY,
+    ProjectName VARCHAR(255) NOT NULL,
+	Author VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    Tags VARCHAR(100) NOT NULL,
+    ContactEmail VARCHAR(255) NOT NULL,
+    SubmittedDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Entry 1
+INSERT INTO SlangProjects (
+    ProjectID,
+    ProjectName,
+    Author,
+    Description,
+    Tags,
+    CreatedDate,
+    VerifiedDate
+) VALUES (
+    2,
+    'Volumetric Scientific Renderer',
+    'Dr. Eliza Tran',
+    'A rendering engine for scientific visualizations using Vulkan and volumetric datasets.',
+    'Vulkan, Scientific, Game Engine',
+    GETDATE(),
+    GETDATE()
+);
+
+-- Entry 2
+INSERT INTO SlangProjects (
+    ProjectID,
+    ProjectName,
+    Author,
+    Description,
+    Tags,
+    CreatedDate,
+    VerifiedDate
+) VALUES (
+    3,
+    'Neural Path Tracer',
+    'Rajeev Patel',
+    'Combines ML models with RTX for real-time neural path tracing in complex scenes.',
+    'ML, RTX, DirectX, Scientific',
+    GETDATE(),
+    GETDATE()
+);
+
+-- Entry 3
+INSERT INTO SlangProjects (
+    ProjectID,
+    ProjectName,
+    Author,
+    Description,
+    Tags,
+    CreatedDate,
+    VerifiedDate
+) VALUES (
+    4,
+    'Retro Game Engine',
+    'Maria Gonzalez',
+    'A lightweight OpenGL-based game engine designed for retro-style 2D/3D games.',
+    'OpenGL, Game Engine, Games',
+    GETDATE(),
+    GETDATE()
+);
