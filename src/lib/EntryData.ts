@@ -36,8 +36,8 @@ export function parseProject(project: any): ISlangProject {
     return {
         name: project.ProjectName,
         description: project.Description,
-        ghLink: '', // no GitHub link in your DB, so leave blank or extend your schema
-        contactEmail: '', // also missing from the DB
+        ghLink: project.ghLink, 
+        contactEmail: '', 
         authorName: project.Author,
         tags: typeof project.Tags === 'string'
             ? project.Tags.split(',').map((tag: string) => tag.trim())
