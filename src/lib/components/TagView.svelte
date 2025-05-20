@@ -24,7 +24,7 @@
         <button
             type="button"
             onclick={() => toggleTag(tag)}
-            class="snap-center text-center justify-items-center w-full text-sm px-5  lg:text-md font-bold border border-zinc-400  rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer {SlangProject.tags.includes(tag) ? 'bg-teal-700 text-white ' : 'bg-transparent text-zinc-800'}"
+            class="snap-center text-center w-full justify-items-center w-20 text-sm px-5  lg:text-md font-bold border border-zinc-400  rounded-lg lg:rounded-2xl duration-200 hover:text-white hover:bg-amber-600 hover:cursor-pointer {SlangProject.tags.includes(tag) ? 'bg-teal-700 text-white ' : 'bg-transparent text-zinc-800'}"
         >
             {tag}
         </button>
