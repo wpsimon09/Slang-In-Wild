@@ -21,9 +21,19 @@ cp env.exampl .env
 **Note:** Emails will not work during developemnt, by default the env is configured to work with the database provided in `docker-compose` file
 
 ### 3. Run database
+Note that the port used is differnt so you have to change the port when connecting to the database to `11433`
+
 ```bash
 sudo system ctl start docker
 sudo docker compose up
+```
+
+Copy and run `init.sql` in your favourite database manager to create database and test entires. 
+
+### 4. Run application
+
+```
+npm run dev 
 ```
 
 
