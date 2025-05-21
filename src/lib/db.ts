@@ -16,13 +16,20 @@ const config = {
 };
 
 // connect to DB and creat asseible pool
-export const poolPromise = new mssql.ConnectionPool(config)
-    .connect()
-    .then(pool => {
-        console.log('Connected to Azure');
-        return pool;
-    })
-    .catch(err => {
-        console.error('Database Connection Failed!', err);
-        throw err;
-    });
+let poolPromise;
+export async function InitDb(){
+    if(poolPromise == undefined){
+        poolPromise = new mssql.ConnectionPool(config)
+            .connect()
+            .then(pool => {
+                console.log('Connected to Azure');
+                return pool;
+            })
+            .catch(err => {
+                console.error('Database Connection Failed!', err);
+                throw err;
+            });
+    }
+
+    return poolPromise;
+}

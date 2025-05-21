@@ -1,5 +1,5 @@
 import { env } from "$env/dynamic/private";
-import { poolPromise } from "$lib/db"
+import { InitDb, poolPromise } from "$lib/db"
 import type { ISlangProject } from "$lib/EntryData";
 import { parseProject } from "$lib/EntryData";
 import type { Actions } from "@sveltejs/kit";
@@ -7,7 +7,8 @@ import type { Actions } from "@sveltejs/kit";
 //=============================
 // load initial data 
 export async function load() {
-  const conn = await poolPromise;
+  
+  const conn = await InitDb();
 
   const result = await conn.request().query('SELECT * FROM SlangProjects');
 
@@ -38,7 +39,7 @@ export const actions = {
     const tags = formData.get("tags")?.toString() || '';
 
     try {
-      const pool = await poolPromise;
+      const pool = await InitDb();
       await pool.request()
         .input('ProjectName', projectName)
         .input('Description', description)
