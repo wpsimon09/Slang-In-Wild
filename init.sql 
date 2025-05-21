@@ -1,6 +1,7 @@
 -- run this script on your local mysql database, dont forget to change env variables
-CREATE DATABASE SlangInWild;
-use SlangInWild;
+CREATE DATABASE SlangProjectsDb;
+use SlangProjectsDb;
+
 CREATE TABLE dbo.PotentialSlagnProjects (
     ProjectID INT IDENTITY(1,1) PRIMARY KEY,
     ProjectName VARCHAR(255) NOT NULL,
