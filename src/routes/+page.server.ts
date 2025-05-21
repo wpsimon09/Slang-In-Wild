@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { env } from "$env/dynamic/private";
 import { InitDb, poolPromise } from "$lib/db"
 import type { ISlangProject } from "$lib/EntryData";
