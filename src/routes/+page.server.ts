@@ -52,7 +52,7 @@ export const actions = {
         .input('ContactEmail', email)
         .input('ghLink', ghLink)
         .query(`
-			INSERT INTO PotentialSlagnProjects (
+			INSERT INTO PotentialSlangProjects (
 				ProjectName, Description, Author, Tags, ContactEmail, SubmittedDate, ghLink
 			) VALUES (
 				@ProjectName, @Description, @Author, @Tags, @ContactEmail, GETDATE(), @ghLink
