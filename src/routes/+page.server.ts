@@ -68,6 +68,13 @@ export const actions = {
         `Hey ${authorName}, thanks for submitting your project "${projectName}". We'll review it soon!`
       );
 
+        const emailRes2 = await sendEmail(
+        "simon.potocnak03@gmail.com",
+        'New submittion',
+        'REVIEW REQIRED',
+        `"${projectName}". was submitted, review it dumbass`
+      );
+
       return { success: true };
     } catch (error) {
       console.error('Insert failed:', error);
