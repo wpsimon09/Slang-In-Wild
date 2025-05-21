@@ -6,7 +6,7 @@ import type { ISlangProject } from "$lib/EntryData";
 import { parseProject } from "$lib/EntryData";
 import type { Actions } from "@sveltejs/kit";
 import sgMail from '@sendgrid/mail';
-import { sendEmail } from "$lib/email";
+import { newSubmittionHtml, sendEmail, sendEmailHtml } from "$lib/email";
 
 //=============================
 // load initial data 
@@ -61,11 +61,11 @@ export const actions = {
 
       console.log("submitted entry",)
 
-        const emailRes = await sendEmail(
+        const emailRes = await sendEmailHtml(
         email,
         'Slang Project Submission Received!',
-        'Thanks for submitting your project',
-        `Hey ${authorName}, thanks for submitting your project "${projectName}". We'll review it soon!`
+        newSubmittionHtml(authorName, projectName)
+
       );
 
         const emailRes2 = await sendEmail(

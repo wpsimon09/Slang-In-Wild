@@ -3,6 +3,7 @@
     import Header from "$lib/components/Header.svelte";
     import Entry from "$lib/components/Entry.svelte";
     import SubmitForm from "$lib/components/SubmitForm.svelte";
+    import {enhance} from '$app/forms'
     import {
         createEmptySlangProject,
         ETag,
@@ -17,9 +18,10 @@
 
     //==========================================
     // initial variables
-    let { data }: PageProps = $props();
+    let { data, form }: PageProps = $props();
     let submitFormOpened = $state(false);
     let searchText = $state();
+    
 
     //==========================================
     // functions
