@@ -1,38 +1,29 @@
-# sv
+# Slang in wild
+[link](https://www.slang-in-wild.com/)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Browse open soruce repositories that are using Slang shading language and compiler. 
 
-## Creating a project
+## Build
+### NOTE: docker is required to run database localy 
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 1. clone and install dependencies
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+git clone https://github.com/wpsimon09/Slang-In-Wild.git
+cd Slang-In-Wild
+npm install
 ```
 
-## Building
-
-To create a production version of your app:
-
+### 2. copy env
 ```bash
-npm run build
+cp env.exampl .env
+```
+**Note:** Emails will not work during developemnt, by default the env is configured to work with the database provided in `docker-compose` file
+
+### 3. Run database
+```bash
+sudo system ctl start docker
+sudo docker compose up
 ```
 
-You can preview the production build with `npm run preview`.
 
->this is simple web as To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
