@@ -5,6 +5,8 @@ import { InitDb, poolPromise } from "$lib/db"
 import type { ISlangProject } from "$lib/EntryData";
 import { parseProject } from "$lib/EntryData";
 import type { Actions } from "@sveltejs/kit";
+import sgMail from '@sendgrid/mail';
+import { sendEmail } from "$lib/email";
 
 //=============================
 // load initial data 
@@ -58,11 +60,21 @@ export const actions = {
 		`);
 
       console.log("submitted entry",)
+
+        const emailRes = await sendEmail(
+        email,
+        'Slang Project Submission Received!',
+        'Thanks for submitting your project',
+        `Hey ${authorName}, thanks for submitting your project "${projectName}". We'll review it soon!`
+      );
+
       return { success: true };
     } catch (error) {
       console.error('Insert failed:', error);
       return { success: false, error: 'Database insert failed' };
     }
+
+  
   }
 } satisfies Actions;
 
