@@ -1,6 +1,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/089a51f2-5cb0-4605-84a4-69b4698ec0a1" />
 </p>
+Slang™ and the Slang logo are trademarks of the Khronos Group Inc.
 
 # Slang in wild
 [link](https://www.slang-in-wild.com/)
