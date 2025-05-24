@@ -1,7 +1,7 @@
 {
 	"name": "slang-in-wild",
-	"private": true,
-	"version": "0.0.1",
+	"private": false,
+	"version": "1.1",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
