@@ -21,7 +21,6 @@ export async function load() {
   // parse the result
   const projects: ISlangProject[] = rows.map(parseProject);
 
-  console.log(projects)
 
   return {
     projects
@@ -33,7 +32,6 @@ export const actions = {
   // handle submition of the new slang project
   default: async ({ request }) => {
     const formData = await request.formData();
-    console.log(formData);
 
     const email = formData.get("email")?.toString() || '';;
     const projectName = formData.get("project-name")?.toString() || '';
@@ -59,7 +57,6 @@ export const actions = {
 			)
 		`);
 
-      console.log("submitted entry",)
 
         const emailRes = await sendEmailHtml(
         email,
