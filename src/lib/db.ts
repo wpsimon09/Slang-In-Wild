@@ -22,7 +22,6 @@ export async function InitDb(){
         poolPromise = new mssql.ConnectionPool(config)
             .connect()
             .then(pool => {
-                console.log('Connected to Azure');
                 return pool;
             })
             .catch(err => {

@@ -16,6 +16,9 @@
 
     const SlangProjectFilter = $state(createEmptySlangProject());
 
+    console.log("Hello, there ! Have a nice day :) ");
+
+
     //==========================================
     // initial variables
     let { data, form }: PageProps = $props();
@@ -36,7 +39,6 @@
     }
 
     function clearTags(): void {
-        console.log("clearing tags ");
         SlangProjectFilter.tags = SlangProjectFilter.tags.filter(
             (tag) => false,
         );

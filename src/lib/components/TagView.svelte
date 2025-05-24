@@ -14,7 +14,6 @@
         } else {
             SlangProject.tags = [...SlangProject.tags, tag];
         }
-        console.log(SlangProject.tags)
     }
 
 </script>
