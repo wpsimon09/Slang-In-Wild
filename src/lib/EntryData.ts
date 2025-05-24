@@ -7,7 +7,8 @@ export enum ETag{
     GasuianSplatting = "Splatting",
     Scientific = "Scientific",
     Games = "Games",
-    GameEngine = "Game Engine"    
+    GameEngine = "Game Engine",
+    SlangPy = "SlangPy" 
 }
 
 
