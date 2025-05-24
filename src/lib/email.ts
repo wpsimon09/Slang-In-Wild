@@ -53,7 +53,7 @@ export function newSubmittionHtml(authorName:string, projectName:string) :string
       </p>
       <hr style="margin: 32px 0; border: none; border-top: 1px solid #eee;">
       <p style="font-size: 0.95em; color: #aaa; margin-top: 32px;">
-        — The Slang In Wild Team
+        — Slang In Wild
       </p>
     </div>
   </div>
