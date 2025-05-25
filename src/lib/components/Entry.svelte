@@ -7,7 +7,7 @@
 
 </script>
 
-<div transition:scale={{duration: 220, delay:20, easing: expoInOut}}  class=" flex bg-white p-4 lg:p-2 flex-col  duration-120  rounded-2xl shadow-xl w-full  lg:mx-0 ">
+<div transition:scale={{duration: 220, delay:20, easing: expoInOut}}  class=" flex bg-white border-1 border-zinc-200 p-4 lg:p-2 flex-col  duration-120  rounded-2xl shadow-xl w-full  lg:mx-0 ">
 <div class="px-2 w-full flex flex-row items-center justify-between">
     <div class="flex flex-col wrap flex-1 min-w-0">
         <div class="w-full">

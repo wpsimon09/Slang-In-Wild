@@ -70,6 +70,7 @@
     class="f-full bg-zinc-100 font-chivo min-h-screen flex flex-col items-center"
 >
     {#if !submitFormOpened}
+    
         <Header />
     {/if}
 
@@ -79,7 +80,7 @@
     </div>
     {/if}
     {#if !submitFormOpened}
-        <div transition:scale={{ duration: 120, delay: 121, easing: expoInOut }}
+        <div transition:scale={{ duration: 120, delay: 0, easing: expoInOut }}
             class="w-full bg-zinc-100/90 backdrop-blur-xl py-4 sticky top-0 z-40 md:w-[70%] lg:w-[60%] flex flex-col items-center mt-4 overflow-hidden"
         >
             <div class="w-full">
@@ -97,7 +98,7 @@
                         />
                     </div>
 
-                    <div class="flex w-1/3 lg:justify-end h-10 mt-4 mr-4">
+                    <div class="flex flex-row items-center w-1/3 lg:justify-end h-10 mt-4 mr-4">
                         <button
                             onclick={openSubmitForm}
                             class="text-white text-xs text-center h-full lg:text-lg duration-200 lg:w-40 w-full hover:text-white hover:cursor-pointer hover:bg-teal-700 p-2 rounded-lg shadow-xl bg-amber-600"
@@ -133,8 +134,8 @@
             </div>
         </div>
         <div
-        transition:scale={{ duration: 220, delay: 110, easing: expoInOut }}
-        class="md:w-[70%] lg:w-[60%] flex-1 flex flex-row items-center w-full mt-4 overflow-hidden"
+        transition:scale={{ duration: 120, delay: 120, easing: expoInOut }}
+        class="md:w-[70%] lg:w-[60%] flex-1 flex flex-col items-center w-full mt-4 overflow-hidden"
         >
             {#if FilteredProjects.length === 0}
                 <div
@@ -150,7 +151,7 @@
                     </button>
                 </div>
             {:else}
-                <div
+                <div transition:scale={{ duration: 120,delay:120, easing: expoInOut }}
                     class="mt-2 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-2 lg:gap-4 items-center h-full w-full p-2"
                 >
                     {#each FilteredProjects as project, i}
