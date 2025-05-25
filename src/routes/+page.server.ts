@@ -14,7 +14,7 @@ export async function load() {
   
   const conn = await InitDb();
 
-  const result = await conn.request().query('SELECT * FROM SlangProjects');
+  const result = await conn.request().query('SELECT * FROM SlangProjects order by ProjectName');
 
   const rows = result.recordset;
 
