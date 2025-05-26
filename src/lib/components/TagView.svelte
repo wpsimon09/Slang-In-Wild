@@ -18,7 +18,7 @@
 
 </script>
 
-<div class="flex lg:grid lg:grid-cols-5  overflow-x-auto overflow-y-hidden snap-x lg:snap-y snap-mandatory w-full lg:h-25 lg:overflow-y-auto gap-3">
+<div class="flex md:grid lg:grid md:grid-cols-5 lg:grid-cols-5  overflow-x-auto overflow-y-hidden snap-x lg:snap-y snap-mandatory w-full md:h-25 lg:h-25 lg:overflow-y-auto gap-3">
     {#each tagValues as tag}
         <button
             type="button"

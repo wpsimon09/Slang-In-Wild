@@ -8,7 +8,10 @@ export enum ETag{
     Scientific = "Scientific",
     Games = "Games",
     GameEngine = "Game Engine",
-    SlangPy = "SlangPy" 
+    SlangPy = "SlangPy",
+    Cuda = "Cuda",
+    Optix = "OptiX",
+    WgSL = "WgSL"
 }
 
 
