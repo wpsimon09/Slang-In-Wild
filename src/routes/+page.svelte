@@ -81,7 +81,7 @@
     {/if}
     {#if !submitFormOpened}
         <div transition:scale={{ duration: 120, delay: 0, easing: expoInOut }}
-            class="w-full bg-zinc-100/90 backdrop-blur-xl py-4 sticky top-0 z-40 md:w-[70%] lg:w-[60%] flex flex-col items-center mt-4 overflow-hidden"
+            class="w-full bg-zinc-100/90 backdrop-blur-xl py-4 sticky top-0 z-40 md:w-[90%] lg:w-[65%] flex flex-col items-center mt-4 overflow-hidden"
         >
             <div class="w-full">
                 <div
@@ -92,16 +92,16 @@
                     >
                         <input
                             bind:value={searchText}
-                            class="rounded-xl w-full lg:w-1/3 lg:h-10"
+                            class="rounded-xl w-full md:w-[90%] md:h-10 lg:w-1/3 lg:h-10"
                             type="text"
                             placeholder="Search"
                         />
                     </div>
 
-                    <div class="flex flex-row items-center w-1/3 lg:justify-end h-10 mt-4 mr-4">
+                    <div class="flex flex-row items-center w-1/3 md:justify-end lg:justify-end h-10 mt-4 mr-4">
                         <button
                             onclick={openSubmitForm}
-                            class="text-white text-xs text-center h-full lg:text-lg duration-200 lg:w-40 w-full hover:text-white hover:cursor-pointer hover:bg-teal-700 p-2 rounded-lg shadow-xl bg-amber-600"
+                            class="text-white text-xs text-center h-full md:text-lg lg:text-lg duration-200 md:w-40 lg:w-40 w-full hover:text-white hover:cursor-pointer hover:bg-teal-700 p-2 rounded-lg shadow-xl bg-amber-600"
                             >Submit project</button
                         >
                     </div>
@@ -123,7 +123,7 @@
                             />
                         </button>
                     </div>
-                    <div class="w-[90%] lg:w-full pl-4 mt-3 lg:mt-2">
+                    <div class="w-[90%] md:w-full lg:w-full pl-4 mt-3 md:mt-4 lg:mt-2">
                         <TagView
                             onFrontPage={true}
                             SlangProject={SlangProjectFilter}
@@ -135,7 +135,7 @@
         </div>
         <div
         transition:scale={{ duration: 120, delay: 120, easing: expoInOut }}
-        class="md:w-[70%] lg:w-[60%] flex-1 flex flex-col items-center w-full mt-4 overflow-hidden"
+        class="md:w-[90%] lg:w-[65%] flex-1 flex flex-col items-center w-full mt-4 overflow-hidden"
         >
             {#if FilteredProjects.length === 0}
                 <div

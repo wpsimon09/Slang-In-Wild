@@ -22,7 +22,7 @@
 </script>
 
 <div transition:fly="{{ y: 200,delay: 10, duration: 210 }}" class="w-screen font-chivo h-full  z-50 bg-slate-100 backdrop-blur-2xl  flex items-center justify-center ">
-    <form method="POST" class="bg-white md:w-[90%] rounded-xl shadow-lg  flex flex-col gap-4 w-full p-10 lg:p-8 lg:py-10 lg:w-1/3 " >
+    <form method="POST" class="bg-white md:w-[90%] rounded-xl shadow-lg  flex flex-col gap-4 w-full p-10 lg:p-8  lg:w-1/2 " >
         <h1 class="text-2xl font-chivo font-semibold">Submit your project </h1>
         <p class="opacity-70 font-chivo font-light">Your project will be reviewed, so this might take a couple of days</p>
 
