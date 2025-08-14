@@ -17,7 +17,7 @@
 
     const SlangProjectFilter = $state(createEmptySlangProject());
 
-    console.log("Hello, there ! Have a nice day :) ");
+    console.log("Hello there ! Have a nice day :) ");
 
     //==========================================
     // initial variables
