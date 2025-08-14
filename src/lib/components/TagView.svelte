@@ -7,7 +7,6 @@
 
     //========================
     // functions
-
     function toggleTag(tag: ETag) {
         if (SlangProject.tags.includes(tag)) {
             SlangProject.tags = SlangProject.tags.filter(
