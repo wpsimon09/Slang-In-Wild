@@ -86,7 +86,7 @@
     >
         {#each SlangProject.tags as tag, i}
             <button
-                class=" justify-around {num % 2 == 0
+                class="justify-center {num % 2 == 0
                     ? 'bg-amber-600 text-white'
                     : ' bg-teal-700 text-white'} p-1 shadow-md rounded-2xl h-8"
                 >{tag}</button

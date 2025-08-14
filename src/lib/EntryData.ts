@@ -7,13 +7,13 @@ export enum ETag{
     GasuianSplatting = "Splatting",
     Scientific = "Scientific",
     Games = "Games",
-    GameEngine = "Game Engine",
+    Engine = "Engine",
     SlangPy = "SlangPy",
     Cuda = "Cuda",
     Optix = "OptiX",
     WgSL = "WgSL",
     WebGPU = "WebGPU",
-    PlayGround = "Play Ground"
+    Playground = "Playground"
 }
 
 
