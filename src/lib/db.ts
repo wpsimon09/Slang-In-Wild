@@ -11,7 +11,8 @@ const config = {
         type: 'default'
     },
     options: {
-        encrypt: true
+        encrypt: true,
+        trustServerCertificate: true
     }
 };
 

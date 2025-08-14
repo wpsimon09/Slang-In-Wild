@@ -11,7 +11,9 @@ export enum ETag{
     SlangPy = "SlangPy",
     Cuda = "Cuda",
     Optix = "OptiX",
-    WgSL = "WgSL"
+    WgSL = "WgSL",
+    WebGPU = "WebGPU",
+    PlayGround = "Play Ground"
 }
 
 
