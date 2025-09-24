@@ -13,7 +13,10 @@ export enum ETag{
     Optix = "OptiX",
     WgSL = "WgSL",
     WebGPU = "WebGPU",
-    Playground = "Playground"
+    Playground = "Playground",
+    Physics = "Physics",
+    Simulation = "Simulation",
+    Rust = "Rust",
 }
 
 
